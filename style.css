@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    font-family: arial;
+    border: border-box;
+}
+/*nav section*/
+.navbar{
+    height: 38px;
+    background-color: #f08804;
+    color: white;  
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.nav-menu {
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.menu{
+    position: fixed;
+    top: 0;
+    left: -200px;
+    width: 200px;
+    height: 100%;
+    background-color: whitesmoke;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: left 0.3s ease-in-out;
+}
+.menu.active {
+    left: 0;
+}
+.menu li {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+.menu li a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+.line{
+    font-weight: 700;
+}
+.loc{
+    cursor: pointer;
+}
+
+.home{
+    cursor: pointer;
+}
+.medicine{
+    cursor: pointer;
+}
+
+/*panel section*/
+
+.panel{
+background-color: #f8f9fa;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding-right: 40px;
+padding: 5px;
+}
+.panel-logo{
+    height: 100px;
+    width: 110px;
+    padding-left: 30px;
+    cursor: pointer;
+}
+.logo{
+    background-image: url(logo.jpg);
+    height: 100px;
+    background-size:cover;
+    
+}
+.panel-search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+
+    
+/*hero section*/
+
+
+}
+.herosection{
+    
+    height: 500px;
+    background-size: cover;
+    justify-content: space-evenly;
+}
+.hero-bgphoto{
+    height: 500px;
+    width: 1500;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+.bgphoto{
+    background-image: url(hero.jpg);
+    border-radius: 5%;
+    height: 500px;
+    background-size: cover;
+}
+

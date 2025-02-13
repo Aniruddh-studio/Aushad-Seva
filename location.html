@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AushadSeva</title>
+    <link rel="icon" href="title-logo.png" type="image/icon type">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        .map{
+            padding: 55px;
+        }
+    </style>
+   </head>
+<body>
+    <script src="script.js"></script>
+    <header>
+        <div class="navbar">
+        
+        <div class="nav-menu" onclick="toggleMenu()">☰ Menu</div>
+    <ul class="menu" id="menu">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</i></a></li>
+        <li><a href="about.html"><i class="fa-solid fa-info"></i>  About</a></li>
+        <li><a href="medicine.html"><i class="fa-solid fa-truck-medical"></i> Medicines</a></li>
+        <li><a href="location.html"><i class="fa-solid fa-location-dot"></i> Location</a></li>
+    </ul>
+            
+            <div class="home" onclick="home()">
+            <i class="fa-solid fa-house"></i>
+            
+        </div>
+            <div class="line">
+                <p>|</p>
+            </div>
+            <div class="medicine" onclick="medicine()">
+                <i class="fa-solid fa-truck-medical"></i>
+            </div>
+            
+            <div class="line">
+                <p>|</p>
+            </div>
+            <div class="loc" onclick="loc()">
+                <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+        </div>
+
+
+        <div class="panel">
+            <div class="panel-logo" onclick="home()">
+                <div class="logo">
+                </div>
+            </div>
+            <div class="panel-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+       
+    </header>
+<h2 style="text-align: center;">AVAILABLE LOCATIONS</h2>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d94848.78452968907!2d73.03284307417809!3d19.08298381892811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPradhan%20Mantri%20Bharathiya%20Jan%20Aushadhi%20Kendra%20navi%20mumbai!5e0!3m2!1sen!2sin!4v1738601212788!5m2!1sen!2sin" width="1400" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            
+</div>
+</body>
+</html>
