@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AushadSeva</title>
+    <link rel="icon" href="title-logo.png" type="image/icon type">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <script src="script.js"></script>
+    <header>
+     <div class="navbar">
+        
+        <div class="nav-menu" onclick="toggleMenu()">☰ Menu</div>
+        <ul class="menu" id="menu">
+        <li><a href="index.html"> ☰ Menu</a></li>
+        
+        <li><a href="about.html"><i class="fa-solid fa-info"></i>  About</a></li>
+        
+        <li><a href="location.html"><i class="fa-solid fa-location-dot"></i> Location</a></li>
+        <li><a href="login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
+        </ul>
+            
+        <div class="home" onclick="home()">
+            <i class="fa-solid fa-house"></i>
+        </div>
+            <div class="line">
+                <p>|</p>
+            </div>
+            <div class="medicine" onclick="loc()">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+            
+            <div class="line">
+                <p>|</p>
+            </div>
+            <div class="loc" onclick="log()">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </div>
+    </div>
+
+
+        <div class="panel">
+            <div class="panel-logo" onclick="home()">
+                <div class="logo">
+                </div>
+            </div>
+            <div class="panel-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter Username" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <p>Not registered? <a href="register.html">Register here</a></p>
+        </div>
+    </main>
+
+    <style>
+        body {
+            background: url('login.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .login-container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #3187a2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .login-btn:hover {
+            background-color: #286b88;
+        }
+    </style>
+</body>
+</html>

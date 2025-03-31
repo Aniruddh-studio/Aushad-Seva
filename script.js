@@ -14,3 +14,7 @@ function loc()
 {
     window.location.href = 'location.html';
 }
+function log()
+{
+    window.location.href='login.html';
+}
