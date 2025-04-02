@@ -53,34 +53,35 @@
 <body>
     <script src="script.js"></script>
     <header>
-        <div class="navbar">
+     <div class="navbar">
         
         <div class="nav-menu" onclick="toggleMenu()">☰ Menu</div>
-    <ul class="menu" id="menu">
-        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</i></a></li>
+        <ul class="menu" id="menu">
+        <li><a href="index.html"> ☰ Menu</a></li>
+        
         <li><a href="about.html"><i class="fa-solid fa-info"></i>  About</a></li>
-        <li><a href="medicine.html"><i class="fa-solid fa-truck-medical"></i> Medicines</a></li>
+        
         <li><a href="location.html"><i class="fa-solid fa-location-dot"></i> Location</a></li>
-    </ul>
+        <li><a href="login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
+        </ul>
             
-            <div class="home" onclick="home()">
+        <div class="home" onclick="home()">
             <i class="fa-solid fa-house"></i>
-            
         </div>
             <div class="line">
                 <p>|</p>
             </div>
-            <div class="medicine" onclick="medicine()">
-                <i class="fa-solid fa-truck-medical"></i>
+            <div class="medicine" onclick="loc()">
+                <i class="fa-solid fa-location-dot"></i>
             </div>
             
             <div class="line">
                 <p>|</p>
             </div>
-            <div class="loc" onclick="loc()">
-                <i class="fa-solid fa-map-location-dot"></i>
-            </div>  
-        </div>
+            <div class="loc" onclick="log()">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </div>
+    </div>
 
 
         <div class="panel">
@@ -103,11 +104,11 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             
+            <label for="mobile">Mobile_no:</label>
+            <input type="tel" id="mobile" name="mobile" required>
+            
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            
-            <label for="confirm_password">Confirm Password:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
             
             <button type="submit">Register</button>
         </form>
