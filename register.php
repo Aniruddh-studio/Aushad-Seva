@@ -1,31 +1,24 @@
 <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $mobile = $_POST['mobile'];
-        $password = $_POST['password']; // Storing password as plain text (Not Recommended)
+include 'db.php';
 
-        // Database connection
-        $conn = new mysqli('localhost', 'root', '', 'miniproject');
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $mobile = $_POST['mobile'];
+    $email = $_POST['email'];
+    $password = $_POST['password']; // No encryption
 
-        if ($conn->connect_error) {
-            die("Connection Failed: " . $conn->connect_error);
-        } else {
-            // Prepare SQL statement
-            $stmt = $conn->prepare("INSERT INTO register(name, email, mobile, password) VALUES(?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $name, $email, $mobile, $password);
+    $sql = "INSERT INTO users (name, mobile, email, password) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssss", $name, $mobile, $email, $password);
 
-            if ($stmt->execute()) {
-                echo "Registration successful!";
-            } else {
-                echo "Error: " . $stmt->error;
-            }
-
-            // Close statement and connection
-            $stmt->close();
-            $conn->close();
-        }
+    if ($stmt->execute()) {
+        header("Location: login.html");
+        exit();
     } else {
-        echo "Invalid Request!";
+        echo "Error: " . $stmt->error;
     }
+
+    $stmt->close();
+}
+$conn->close();
 ?>

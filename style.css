@@ -1,116 +1,159 @@
-*{
-    margin: 0;
-    font-family: arial;
-    border: border-box;
+* {
+  margin: 0;
+  font-family: arial;
+  border: border-box;
 }
 /*nav section*/
-.navbar{
-    height: 38px;
-    background-color: #f08804;
-    color: white;  
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+.navbar {
+  height: 38px;
+  background-color: #f08804;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .nav-menu {
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
 }
-.menu{
-    position: fixed;
-    top: 0;
-    left: -200px;
-    width: 200px;
-    height: 100%;
-    background-color: whitesmoke;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    transition: left 0.3s ease-in-out;
+.menu {
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 200px;
+  height: 100%;
+  background-color: whitesmoke;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transition: left 0.3s ease-in-out;
+  z-index: 1001; /* Ensure menu appears above other elements */
 }
 .menu.active {
-    left: 0;
+  left: 0;
 }
 .menu li {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid black;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid black;
 }
 .menu li a {
-    color: black;
-    text-decoration: none;
-    display: block;
+  color: black;
+  text-decoration: none;
+  display: block;
 }
-.line{
-    font-weight: 700;
+.line {
+  font-weight: 700;
 }
-.loc{
-    cursor: pointer;
+.loc {
+  cursor: pointer;
 }
 
-.home{
-    cursor: pointer;
+.home {
+  cursor: pointer;
 }
-.medicine{
-    cursor: pointer;
+.medicine {
+  cursor: pointer;
 }
 
 /*panel section*/
 
-.panel{
-background-color: #f8f9fa;
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding-right: 40px;
-padding: 5px;
+.panel {
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 40px 5px 5px;
 }
-.panel-logo{
-    height: 100px;
-    width: 110px;
-    padding-left: 30px;
-    cursor: pointer;
+.panel-logo {
+  height: 100px;
+  width: 110px;
+  padding-left: 30px;
+  cursor: pointer;
 }
-.logo{
-    background-image: url(logo.jpg);
-    height: 100px;
-    background-size:cover;
-    
+.logo {
+  background-image: url(logo.jpg);
+  height: 100px;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-.panel-search{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;
-    background-color: #ddd;
-    border-radius: 50%;
-    cursor: pointer;
 
-    
+/* Fixed user icon and dropdown styling */
+.panel-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: #ddd;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.user-icon:hover {
+  background-color: #f0f0f0;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 150px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow: hidden;
+  display: none; /* Hidden by default */
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* Show dropdown when active class is added */
+.user-dropdown.active {
+  display: block;
+}
+
 /*hero section*/
-
-
+.herosection {
+  height: 500px;
+  background-size: cover;
+  justify-content: space-evenly;
 }
-.herosection{
-    
-    height: 500px;
-    background-size: cover;
-    justify-content: space-evenly;
+.hero-bgphoto {
+  height: 500px;
+  width: 1500;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
 }
-.hero-bgphoto{
-    height: 500px;
-    width: 1500;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
-}
-.bgphoto{
-    background-image: url(hero.jpg);
-    border-radius: 5%;
-    height: 500px;
-    background-size: cover;
+.bgphoto {
+  background-image: url(hero.jpg);
+  border-radius: 5%;
+  height: 500px;
+  background-size: cover;
 }
 

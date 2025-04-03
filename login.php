@@ -1,41 +1,28 @@
 <?php
-    session_start(); // Start session to store user information
+session_start();
+include 'db.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password']; // No encryption
 
-        // Database connection
-        $conn = new mysqli('localhost', 'root', '', 'miniproject');
-
-        if ($conn->connect_error) {
-            die("Connection Failed: " . $conn->connect_error);
-        }
-
-        // Check if user exists
-        $stmt = $conn->prepare("SELECT * FROM register WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-
-            // Check if password matches (plaintext comparison)
-            if ($password === $row['password']) {
-                $_SESSION['user'] = $row['name']; // Store user session
-                echo "<script>alert('Login successful!'); window.location.href='index.html';</script>";
-            } else {
-                echo "<script>alert('Invalid password!'); window.location.href='login.html';</script>";
-            }
-        } else {
-            echo "<script>alert('User not found! Please register.'); window.location.href='register.html';</script>";
-        }
-
-        // Close statement and connection
-        $stmt->close();
-        $conn->close();
+    $sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $email, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows == 1) {
+        $user = $result->fetch_assoc();
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_email'] = $user['email'];
+        header("Location: index.php"); // Redirect to home page
+        exit();
     } else {
-        echo "Invalid Request!";
+        echo "Invalid email or password.";
     }
+
+    $stmt->close();
+}
+$conn->close();
 ?>
