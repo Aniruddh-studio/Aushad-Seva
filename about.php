@@ -1,0 +1,160 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.html"); // Redirect to login if not logged in
+    exit();
+}
+
+include 'db.php';
+
+// Fetch user details from the database
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT name FROM users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+$stmt->close();
+$conn->close();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AushadSeva</title>
+    <link rel="icon" href="title-logo.png" type="image/icon type">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin-top: 50px;
+    }
+
+    /* Content Section */
+    .content {
+        padding: 20px;
+    }
+
+    /* Main Heading */
+    h1 {
+        font-size: 2.5rem;
+        color: #00796b;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
+    /* Section Title */
+    h2.section-title {
+        font-size: 1.8rem;
+        color: #004d40;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    /* Paragraph Styling */
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        text-align: justify;
+    }
+</style>
+   </head>
+<body>
+    <script src="script.js"></script>
+    <header>
+        <div class="navbar">
+        
+        <div class="nav-menu" onclick="toggleMenu()">☰ Menu</div>
+    <ul class="menu" id="menu">
+        <li><a href="index.php"><i class="fa-solid fa-house"></i> Home</i></a></li>
+        <li><a href="about.php"><i class="fa-solid fa-info"></i>  About</a></li>
+        <li><a href="medicine.php"><i class="fa-solid fa-truck-medical"></i> Medicines</a></li>
+        <li><a href="location.html"><i class="fa-solid fa-location-dot"></i> Location</a></li>
+        <li><a href=""><i class="fa-solid fa-cart-plus"></i> Cart</a></li>
+    </ul>
+            
+            <div class="home" onclick="home()">
+            <i class="fa-solid fa-house"></i>
+            
+        </div>
+            <div class="line">
+                <p>|</p>
+            </div>
+            <div class="medicine" onclick="medicine()">
+                <i class="fa-solid fa-truck-medical"></i>
+            </div>
+            
+            <div class="line">
+                <p>|</p>
+            </div>
+            <div class="loc" onclick="loc()">
+                <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+
+            <div class="line">
+                <p>|</p>
+            </div>
+            <div class="loc" onclick="cart()">
+            <i class="fa-solid fa-cart-plus"></i>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="panel">
+            <div class="panel-logo" onclick="home()">
+                <div class="logo">
+                </div>
+            </div>
+            <h2>Welcome, <?php echo htmlspecialchars($user['name']); ?>!</h2>
+            <!-- Fixed user icon dropdown -->
+            <div class="panel-search">
+                <div class="user-icon" onclick="toggleUserDropdown()">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="logout.php" class="dropdown-item">Logout</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="abphoto">
+                <img align="right" src="about.png">
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h1>Mini-Project: AushadSeva<h1>
+
+            <h2 class="section-title">Introduction</h2>
+            <ul>
+            <li><p>JanAushadi is an initiative by the Government of India to provide quality medicine at affordable rates.</p></li>
+            <li><p>This initiative is implemented under the Ministry of Pharmaceuticals and Ministry of Chemicals and Fertilizers.</p></li>
+            <li><p>Medicines sold under this scheme are from certified pharmaceutical companies and are tested for quality to ensure global standards.</p></li>
+            <li><p>Medicines are available at Pradhanmantri JanAushadhi Kendra which are setup at various locations around the country.</p> </li>
+            <li><p>The government conducts campaigns to create awareness about benefits of generic medicine and this scheme.</p></li>
+            <li><p>The objective of this scheme is to promote the use of generic medicine and also encourage availability of high quality generic medicine.</p></li>
+            </ul>
+            <h2 class="section-title">Conclusion</h2>
+            <p>The JanAushadi Yojana is a transformative initiative that aims to address the critical issue of affordable healthcare in our nation. </p>
+            <p>By promoting accessible medicines, the government is striving to improve the health outcomes for millions of people across the country while ensuring that cost does not become a barrier to healthcare.</p> 
+            <p>The success of this scheme has revolutionized the Indian healthcare system and strives to achieve fair treatment.</p>
+        </div>        
+    </div>
+    <div class="footer-image">
+        <img src="Flowchart.png" alt="Footer Image" style="display: block; margin: 20px auto; max-width: 100%; height: auto;">
+    </div>
+</body>
+</html>

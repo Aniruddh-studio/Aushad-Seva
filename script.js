@@ -4,19 +4,19 @@ function toggleMenu() {
 }
 
 function home() {
-  window.location.href = "index.html"
+  window.location.href = "index.php"
 }
 
 function medicine() {
-  window.location.href = "medicine.html"
+  window.location.href = "medicine.php"
 }
 
 function loc() {
   window.location.href = "location.html"
 }
 
-function log() {
-  window.location.href = "login.html"
+function cart() {
+  window.location.href = "cart.php"
 }
 
 // User dropdown functionality

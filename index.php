@@ -34,37 +34,48 @@ $conn->close();
 <body>
     <header>
         <div class="navbar">
-            <div class="nav-menu" onclick="toggleMenu()">☰ Menu</div>
-            <ul class="menu" id="menu">
-                <li><a href="index.html"> ☰ Menu</a></li>
-                <li><a href="about.html"><i class="fa-solid fa-info"></i> About</a></li>
-                <li><a href="location.html"><i class="fa-solid fa-location-dot"></i> Location</a></li>
-                <li><a href="login.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a></li>
-            </ul>
+        
+        <div class="nav-menu" onclick="toggleMenu()">☰ Menu</div>
+    <ul class="menu" id="menu">
+        <li><a href="index.php"><i class="fa-solid fa-house"></i> Home</i></a></li>
+        <li><a href="about.php"><i class="fa-solid fa-info"></i>  About</a></li>
+        <li><a href="medicine.php"><i class="fa-solid fa-prescription-bottle-medical"></i> Medicines</a></li>
+        <li><a href="location.html"><i class="fa-solid fa-location-dot"></i> Location</a></li>
+        <li><a href=""><i class="fa-solid fa-cart-plus"></i> Cart</a></li>
+    </ul>
             
             <div class="home" onclick="home()">
-                <i class="fa-solid fa-house"></i>
-            </div>
+            <i class="fa-solid fa-house"></i>
+            
+        </div>
             <div class="line">
                 <p>|</p>
             </div>
-            <div class="medicine" onclick="loc()">
-                <i class="fa-solid fa-location-dot"></i>
+            <div class="medicine" onclick="medicine()">
+            <i class="fa-solid fa-prescription-bottle-medical"></i>
             </div>
             
             <div class="line">
                 <p>|</p>
             </div>
-            <div class="loc" onclick="log()">
-                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <div class="loc" onclick="loc()">
+                <i class="fa-solid fa-map-location-dot"></i>
             </div>
+
+            <div class="line">
+                <p>|</p>
+            </div>
+            <div class="loc" onclick="cart()">
+            <i class="fa-solid fa-cart-plus"></i>
+            </div>
+        </div>
         </div>
 
         <div class="panel">
             <div class="panel-logo" onclick="home()">
                 <div class="logo"></div>
             </div>
-            <h1>Welcome, <?php echo htmlspecialchars($user['name']); ?>!</h1>
+            <h2>Welcome, <?php echo htmlspecialchars($user['name']); ?>!</h2>
             <!-- Fixed user icon dropdown -->
             <div class="panel-search">
                 <div class="user-icon" onclick="toggleUserDropdown()">

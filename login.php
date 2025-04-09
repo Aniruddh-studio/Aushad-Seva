@@ -19,7 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: index.php"); // Redirect to home page
         exit();
     } else {
-        echo "Invalid email or password.";
+        header("Location: error.html");
+        exit();
     }
 
     $stmt->close();
