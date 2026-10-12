@@ -1,0 +1,51 @@
+# ========================================================
+# Sensitive Configuration & Credentials
+# ========================================================
+.env
+.env.*
+!.env.example
+*.config.php
+!db.php
+
+# ========================================================
+# Server and Database Backups / Exports
+# ========================================================
+*.sql.gz
+*.sql.tar.gz
+*.backup
+*.dump
+*.sqlite
+
+# ========================================================
+# IDE & Code Editor Files
+# ========================================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# ========================================================
+# Operating System Files
+# ========================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ========================================================
+# Logs & Temporary Files
+# ========================================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+error_log
+/tmp/
+/temp/
